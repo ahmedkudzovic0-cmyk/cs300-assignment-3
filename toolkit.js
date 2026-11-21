@@ -2,7 +2,7 @@
 // Returns an object with valid boolean and errors array. Does not change input.
 export function validateRecord(record) {
   const errors = [];
-  if (!record.title) errors.push("title is required");
+  if (!record.title || record.title.trim() === "") errors.push("title is required and cannot be empty");
   if (typeof record.minutes !== "number") errors.push("minutes must be a number");
   return { valid: errors.length === 0, errors };
 }
